@@ -16,6 +16,7 @@ puts " |____/ \\__,_|_|\\___||___/ |_| \\_\\___| .__/ \\___/|_|   \\__|"
 puts "                                     |_|                   "
 
 # Print today's date
+puts "Today is #{Time.new}" 
 
 # Print "Products" in ascii art
 
