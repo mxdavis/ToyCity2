@@ -19,6 +19,12 @@ puts "                                     |_|                   "
 puts "Today is #{Time.new}" 
 
 # Print "Products" in ascii art
+puts " ____                _            _    "   
+puts "|  _ \\ _ __ ___   __| |_   _  ___| |_ ___ "
+puts "| |_) | '__/ _ \\ / _` | | | |/ __| __/ __|"
+puts "|  __/| | | (_) | (_| | |_| | (__| |_\\__ \\"
+puts "|_|   |_|  \\___/ \\__,_|\\__,_|\\___|\\__|___/"
+
 
 # For each product in the data set:
 	# Print the name of the toy
