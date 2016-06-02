@@ -1,0 +1,29 @@
+commit a433c776c5a0cbd1801ef70d936a029826594d1c
+Author: Malki Davis <md01@me.com>
+Date:   Thu Jun 2 22:39:25 2016 +0300
+
+    Prints products in ASCII
+
+commit 569ce5c1c0502256ad12ff4b95eaf7473f2df9e9
+Author: Malki Davis <md01@me.com>
+Date:   Mon May 30 13:13:59 2016 +0300
+
+    Print today's date
+
+commit 0b58020563c8256dfde3b70dc388088a3ebeb798
+Author: Malki Davis <md01@me.com>
+Date:   Mon May 30 13:09:36 2016 +0300
+
+    Print Sales Report in ascii art
+
+commit f77567d2c5b5ef3cec51cf26d7cfc36995daabf0
+Author: Malki Davis <md01@me.com>
+Date:   Mon May 30 12:52:11 2016 +0300
+
+    setup_files
+
+commit 316ab48b3552e74920ca6bbeb9f147676f67ceb7
+Author: Malki Davis <md01@me.com>
+Date:   Mon May 30 12:33:34 2016 +0300
+
+    Initial Commit

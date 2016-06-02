@@ -7,6 +7,17 @@ def setup_files
     $report_file = File.new("report.txt", "w+")
 end
 
+def run_report
+  setup_files
+  create_report
+end
+​
+def create_report
+  current_date
+  products_data
+  $report_file.close
+end
+
 # Print "Sales Report" in ascii art
 puts "  ____        _             ____                       _  " 
 puts " / ___|  __ _| | ___  ___  |  _ \\ ___ _ __   ___  _ __| |_ "
@@ -28,7 +39,7 @@ puts "|_|   |_|  \\___/ \\__,_|\\__,_|\\___|\\__|___/"
 
 # For each product in the data set:
 	# Print the name of the toy
-	# Print the retail price of the toy
+    # Print the retail price of the toy
 	# Calculate and print the total number of purchases
 	# Calculate and print the total amount of sales
 	# Calculate and print the average price the toy sold for
