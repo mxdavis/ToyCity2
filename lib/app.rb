@@ -16,6 +16,7 @@ def create_report
   sales_report_ascii
   todays_date
   products_ascii
+  name_and_price_of_toy
   $report_file.close
 end
 
@@ -45,6 +46,15 @@ end
 # For each product in the data set:
 	# Print the name of the toy
     # Print the retail price of the toy
+    def name_and_price_of_toy
+    	$report_file.puts "Items and Price"
+    	$linebreak = $report_file.puts "============================"
+    	$linebreak
+    	$toys = $products_hash["items"]
+    	$toys.each do |item|
+    		$report_file.puts "#{item["title"]} costs $#{item["full-price"]}"
+    	end
+    end
 	# Calculate and print the total number of purchases
 	# Calculate and print the total amount of sales
 	# Calculate and print the average price the toy sold for
