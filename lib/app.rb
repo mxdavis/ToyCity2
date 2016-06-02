@@ -1,5 +1,10 @@
 require 'json'
+require 'pry'
 
+def start
+  setup_files # load, read, parse, and create the files
+  create_report # create the report!
+end
 def setup_files
     path = File.join(File.dirname(__FILE__), '../data/products.json')
     file = File.read(path)
@@ -7,35 +12,35 @@ def setup_files
     $report_file = File.new("report.txt", "w+")
 end
 
-def run_report
-  setup_files
-  create_report
-end
-​
 def create_report
-  current_date
-  products_data
+  sales_report_ascii
+  todays_date
+  products_ascii
   $report_file.close
 end
 
 # Print "Sales Report" in ascii art
-puts "  ____        _             ____                       _  " 
-puts " / ___|  __ _| | ___  ___  |  _ \\ ___ _ __   ___  _ __| |_ "
-puts " \\___ \\ / _` | |/ _ \\/ __| | |_) / _ \\ '_ \\ / _ \\| '__| __| "
-puts "  ___) | (_| | |  __/\\__ \\ |  _ <  __/ |_) | (_) | |  | |_ "
-puts " |____/ \\__,_|_|\\___||___/ |_| \\_\\___| .__/ \\___/|_|   \\__|"
-puts "                                     |_|                   "
-
+def sales_report_ascii
+$report_file.puts "  ____        _             ____                       _  " 
+$report_file.puts " / ___|  __ _| | ___  ___  |  _ \\ ___ _ __   ___  _ __| |_ "
+$report_file.puts " \\___ \\ / _` | |/ _ \\/ __| | |_) / _ \\ '_ \\ / _ \\| '__| __| "
+$report_file.puts "  ___) | (_| | |  __/\\__ \\ |  _ <  __/ |_) | (_) | |  | |_ "
+$report_file.puts " |____/ \\__,_|_|\\___||___/ |_| \\_\\___| .__/ \\___/|_|   \\__|"
+$report_file.puts "                                     |_|                   "
+end
 # Print today's date
-puts "Today is #{Time.new}" 
+def todays_date
+	$report_file.puts "Today is #{Time.new}" 
+end
 
 # Print "Products" in ascii art
-puts " ____                _            _    "   
-puts "|  _ \\ _ __ ___   __| |_   _  ___| |_ ___ "
-puts "| |_) | '__/ _ \\ / _` | | | |/ __| __/ __|"
-puts "|  __/| | | (_) | (_| | |_| | (__| |_\\__ \\"
-puts "|_|   |_|  \\___/ \\__,_|\\__,_|\\___|\\__|___/"
-
+def products_ascii
+$report_file.puts " ____                _            _    "   
+$report_file.puts "|  _ \\ _ __ ___   __| |_   _  ___| |_ ___ "
+$report_file.puts "| |_) | '__/ _ \\ / _` | | | |/ __| __/ __|"
+$report_file.puts "|  __/| | | (_) | (_| | |_| | (__| |_\\__ \\"
+$report_file.puts "|_|   |_|  \\___/ \\__,_|\\__,_|\\___|\\__|___/"
+end
 
 # For each product in the data set:
 	# Print the name of the toy
@@ -52,3 +57,5 @@ puts "|_|   |_|  \\___/ \\__,_|\\__,_|\\___|\\__|___/"
 	# Count and print the number of the brand's toys we stock
 	# Calculate and print the average price of the brand's toys
 	# Calculate and print the total sales volume of all the brand's toys combined
+
+start
