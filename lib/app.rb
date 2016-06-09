@@ -57,6 +57,16 @@ end
     end
 	# Calculate and print the total number of purchases
 	# Calculate and print the total amount of sales
+	def total_num_purchases_and_sales
+		$sumofsales = 0
+		$numpurchases = 0
+		item["purchases"].each do |purchase|
+			sumofsales += purchase["price"]
+			totalsales += purchase["price"]
+			numpurchases += 1
+			totalpurchases += 1
+		end
+	end
 	# Calculate and print the average price the toy sold for
 	# Calculate and print the average discount (% or $) based off the average sales price
 
