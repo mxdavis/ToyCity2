@@ -68,7 +68,14 @@ end
 		end
 	end
 	# Calculate and print the average price the toy sold for
+	def avg_price
+		$sumofsales / $numpurchases
+	end
 	# Calculate and print the average discount (% or $) based off the average sales price
+	def avg_discount
+		costprice = item["full-price"].to_f
+		(100.00 * ((costprice - avg_price) / costprice)).round(2)
+	end
 
 # Print "Brands" in ascii art
 
