@@ -16,6 +16,7 @@ end
 def create_report
   print_ascii('Sales Report')
   todays_date
+  linebreak
   print_ascii('Products')
   name_and_price_of_toy
   total_num_purchases
@@ -32,14 +33,17 @@ end
 def print_ascii(title)
 	title_ascii = Artii::Base.new
 	$report_file.puts title_ascii.asciify(title)
+	linebreak
 end
 
-=
 # Print today's date
 def todays_date
 	$report_file.puts "Today is #{Time.new}" 
 end
 
+def linebreak
+	$report_file.puts "==================================="
+end
 # Print "Products" in ascii art
 
 
