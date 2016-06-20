@@ -22,6 +22,7 @@ def create_report
   avg_discount
   print_avg_price_and_avg_discount
   print_total_sales_and_purchases
+  brands_ascii
   $report_file.close
 end
 
@@ -99,6 +100,13 @@ end
 	end
 
 # Print "Brands" in ascii art
+def brands_ascii
+$report_file.puts "  ____                      _     "
+$report_file.puts " | __ ) _ __ __ _ _ __   __| |___ "
+$report_file.puts " |  _ \\| '__/ _` | '_ \\ / _` / __|"
+$report_file.puts " | |_) | | | (_| | | | | (_| \\__ \\"
+$report_file.puts " |____/|_|  \\__,_|_| |_|\\__,_|___/"                                
+end
 
 # For each brand in the data set:
 	# Print the name of the brand
