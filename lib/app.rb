@@ -1,5 +1,6 @@
 require 'json'
 require 'pry'
+require 'artii'
 
 def start
   setup_files # load, read, parse, and create the files
@@ -13,41 +14,34 @@ def setup_files
 end
 
 def create_report
-  sales_report_ascii
+  print_ascii('Sales Report')
   todays_date
-  products_ascii
+  print_ascii('Products')
   name_and_price_of_toy
   total_num_purchases
   avg_price
   avg_discount
   print_avg_price_and_avg_discount
   print_total_sales_and_purchases
-  brands_ascii
+  print_ascii('Brands')
   $report_file.close
 end
 
 # Print "Sales Report" in ascii art
-def sales_report_ascii
-$report_file.puts "  ____        _             ____                       _  " 
-$report_file.puts " / ___|  __ _| | ___  ___  |  _ \\ ___ _ __   ___  _ __| |_ "
-$report_file.puts " \\___ \\ / _` | |/ _ \\/ __| | |_) / _ \\ '_ \\ / _ \\| '__| __| "
-$report_file.puts "  ___) | (_| | |  __/\\__ \\ |  _ <  __/ |_) | (_) | |  | |_ "
-$report_file.puts " |____/ \\__,_|_|\\___||___/ |_| \\_\\___| .__/ \\___/|_|   \\__|"
-$report_file.puts "                                     |_|                   "
+
+def print_ascii(title)
+	title_ascii = Artii::Base.new
+	$report_file.puts title_ascii.asciify(title)
 end
+
+=
 # Print today's date
 def todays_date
 	$report_file.puts "Today is #{Time.new}" 
 end
 
 # Print "Products" in ascii art
-def products_ascii
-$report_file.puts " ____                _            _    "   
-$report_file.puts "|  _ \\ _ __ ___   __| |_   _  ___| |_ ___ "
-$report_file.puts "| |_) | '__/ _ \\ / _` | | | |/ __| __/ __|"
-$report_file.puts "|  __/| | | (_) | (_| | |_| | (__| |_\\__ \\"
-$report_file.puts "|_|   |_|  \\___/ \\__,_|\\__,_|\\___|\\__|___/"
-end
+
 
 # For each product in the data set:
 	# Print the name of the toy
@@ -100,18 +94,7 @@ end
 	end
 
 # Print "Brands" in ascii art
-def brands_ascii
-$report_file.puts "  ____                      _     "
-$report_file.puts " | __ ) _ __ __ _ _ __   __| |___ "
-$report_file.puts " |  _ \\| '__/ _` | '_ \\ / _` / __|"
-$report_file.puts " | |_) | | | (_| | | | | (_| \\__ \\"
-$report_file.puts " |____/|_|  \\__,_|_| |_|\\__,_|___/"                                
-end
 
-# For each brand in the data set:
-	# Print the name of the brand
-	# Count and print the number of the brand's toys we stock
-	# Calculate and print the average price of the brand's toys
-	# Calculate and print the total sales volume of all the brand's toys combined
+
 
 start
