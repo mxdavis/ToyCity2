@@ -32,7 +32,7 @@ end
 # Print "Sales Report" in ascii art
 
 def shortened_names
-	$toys = toys = products_hash["items"]
+	$toys = products_hash["items"]
 end
 
 def header(title)
