@@ -21,10 +21,14 @@ def create_report
   name_and_price_of_toy
   print_products_calculations
   print_ascii('Brands')
+  print_brand_calculations
+  end_report
   $report_file.close
 end
 
 # Print "Sales Report" in ascii art
+# Print "Products" in ascii art
+# Print "Brands" in ascii art
 
 def print_ascii(title)
 	title_ascii = Artii::Base.new
@@ -40,7 +44,6 @@ end
 def linebreak
 	$report_file.puts "================================================================================================"
 end
-# Print "Products" in ascii art
 
 
 # For each product in the data set:
@@ -84,6 +87,34 @@ totalsales = 0
 
 # Print "Brands" in ascii art
 
+def print_brand_calculations
+	brandhash = {}
+	brandsunique = $products_hash["items"].map { |toy| toy["brand"] }.uniq
+ # Count and print the number of the brand's toys we stock
+ brandsunique.each do |brand|
+ 	brandhash[brand] = {count: 0, stock: 0, price: 0}
+
+     # Calculate and print the total revenue of all the brand's toy sales combined
+     $products_hash["items"].each do |item|
+     	if brand == item["brand"]
+     		brandhash[brand][:stock] += item["stock"]
+     		item["purchases"].each do |purchase|
+     			brandhash[brand][:count] += 1
+     			brandhash[brand][:price] += purchase["price"].to_f
+     		end
+     	end
+     end
+  # Calculate and print the average price of the brand's toys
+  avgpricebrand = brandhash[brand][:price] / brandhash[brand][:count]
+  $report_file.puts "#{brand} has #{brandhash[brand][:stock]} toys in stock. The average price of the #{brandhash[brand][:count]} toys sold by #{brand} is $#{avgpricebrand.round(2)} and the total revenue is $#{brandhash[brand][:price].round(2)}"
+  linebreak
+end
+end
+
+def end_report
+	$report_file.puts "THIS IS THE END OF THE REPORT"
+	linebreak
+end
 
 
 start
