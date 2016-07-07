@@ -19,11 +19,7 @@ def create_report
   linebreak
   print_ascii('Products')
   name_and_price_of_toy
-  total_num_purchases
-  avg_price
-  avg_discount
-  print_avg_price_and_avg_discount
-  print_total_sales_and_purchases
+  print_products_calculations
   print_ascii('Brands')
   $report_file.close
 end
@@ -42,7 +38,7 @@ def todays_date
 end
 
 def linebreak
-	$report_file.puts "==================================="
+	$report_file.puts "================================================================================================"
 end
 # Print "Products" in ascii art
 
@@ -52,50 +48,39 @@ end
     # Print the retail price of the toy
     def name_and_price_of_toy
     	$report_file.puts "Items and Price"
-    	$report_file.puts "============================"
+    	linebreak
     	$products_hash["items"].each do |item|
     		$report_file.puts "#{item["title"]} costs $#{item["full-price"]}"
     	end
     end
-	# Calculate and print the total number of purchases
-	# Calculate and print the total amount of sales
-	def total_num_purchases
-		$sumofsales = 0
-		$numpurchases = 0
-		$products_hash["items"].each do |item|
-			$totalsales = 0
-			$totalpurchases = 0
-			item["purchases"].each do |purchase|
-				$sumofsales += purchase["price"]
-				$totalsales += purchase["price"]
-				$numpurchases += 1
-				$totalpurchases += 1
-			end
-		end
-	end
-	# Calculate and print the average price the toy sold for
-	def avg_price
-		$sumofsales / $numpurchases
-	end
-	# Calculate and print the average discount (% or $) based off the average sales price
-	def avg_discount
-		$products_hash["items"].each do |item|
-			$costprice = item["full-price"].to_f
-		end
-		(100.00 * (($costprice - avg_price) / $costprice)).round(2)
-	end
 	
-	def print_avg_price_and_avg_discount
-		$products_hash["items"].each do |item|
-			$report_file.puts "============================"
-			$report_file.puts "#{$numpurchases} #{item["title"]} were sold for a total of $#{$sumofsales} with an average price of $#{avg_price}. The full price is $#{$costprice}. The average discount for #{item["title"]} was #{avg_discount}%"
-		end
+	def print_products_calculations
+totalsales = 0
+  totalpurchases = 0
+  $products_hash["items"].each do |item|
+    # Calculate and print the total number of purchases 
+    # Calculate and print the total amount of sales 
+    sumofsales = 0
+    numpurchases = 0
+    item["purchases"].each do |purchase|
+      sumofsales += purchase["price"]
+      totalsales += purchase["price"]
+      numpurchases += 1
+      totalpurchases += 1
+    end
+    # Calculate and print the average price the toy sold for 
+    avgprice = sumofsales / numpurchases
+    # Calculate and print the average discount (% or $) based off the average sales price 
+    costprice = item["full-price"].to_f
+    $report_file.puts "#{numpurchases} #{item["title"]} were sold for a total of $#{sumofsales} with an average price of 
+    $#{avgprice}. The full price is $#{costprice}. The average discount for #{item["title"]} was 
+    #{(100.00 * ((costprice - avgprice) / costprice)).round(2)}%"
+    linebreak
+  end
+  $report_file.puts "Total sales were $#{totalsales} and total purchases #{totalpurchases}"
+  linebreak
 	end
 
-	def print_total_sales_and_purchases
-		$report_file.puts "============================"
-		$report_file.puts "Total sales were $#{$totalsales} and total purchases #{$totalpurchases}"
-	end
 
 # Print "Brands" in ascii art
 
