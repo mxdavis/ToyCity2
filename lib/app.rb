@@ -33,6 +33,7 @@ end
 
 def shortened_names
 	$toys = toys = products_hash["items"]
+end
 
 def header(title)
 	#print in ASCII
