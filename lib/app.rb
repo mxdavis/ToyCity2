@@ -15,8 +15,8 @@ end
 
 def create_report
   print_ascii('Sales Report')
-  todays_date
-  linebreak
+  calculate_and_print_todays_date
+  puts_linebreak
   print_ascii('Products')
   name_and_price_of_toy
   print_products_calculations
@@ -33,15 +33,17 @@ end
 def print_ascii(title)
 	title_ascii = Artii::Base.new
 	$report_file.puts title_ascii.asciify(title)
-	linebreak
+	puts_linebreak
 end
 
 # Print today's date
-def todays_date
-	$report_file.puts "Today is #{Time.new}" 
+def calculate_and_print_todays_date
+	timenow = Time.new
+	printtime = timenow.strftime("Printed on %A, %d %b %Y %l:%M %p")
+	$report_file.puts printtime
 end
 
-def linebreak
+def puts_linebreak
 	$report_file.puts "================================================================================================"
 end
 
@@ -51,7 +53,7 @@ end
     # Print the retail price of the toy
     def name_and_price_of_toy
     	$report_file.puts "Items and Price"
-    	linebreak
+    	puts_linebreak
     	$products_hash["items"].each do |item|
     		$report_file.puts "#{item["title"]} costs $#{item["full-price"]}"
     	end
@@ -78,10 +80,10 @@ totalsales = 0
     $report_file.puts "#{numpurchases} #{item["title"]} were sold for a total of $#{sumofsales} with an average price of 
     $#{avgprice}. The full price is $#{costprice}. The average discount for #{item["title"]} was 
     #{(100.00 * ((costprice - avgprice) / costprice)).round(2)}%"
-    linebreak
+    puts_linebreak
   end
   $report_file.puts "Total sales were $#{totalsales} and total purchases #{totalpurchases}"
-  linebreak
+  puts_linebreak
 	end
 
 
@@ -107,13 +109,13 @@ def print_brand_calculations
   # Calculate and print the average price of the brand's toys
   avgpricebrand = brandhash[brand][:price] / brandhash[brand][:count]
   $report_file.puts "#{brand} has #{brandhash[brand][:stock]} toys in stock. The average price of the #{brandhash[brand][:count]} toys sold by #{brand} is $#{avgpricebrand.round(2)} and the total revenue is $#{brandhash[brand][:price].round(2)}"
-  linebreak
+  puts_linebreak
 end
 end
 
 def end_report
 	$report_file.puts "THIS IS THE END OF THE REPORT"
-	linebreak
+	puts_linebreak
 end
 
 
