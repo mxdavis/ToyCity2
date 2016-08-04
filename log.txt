@@ -1,3 +1,15 @@
+commit d83143824b0d32d6aa0724cb9d3ce4849424985d
+Author: Malki Davis <md01@me.com>
+Date:   Thu Aug 4 13:05:20 2016 +0300
+
+    update brands print output to include amount of toys
+
+commit 386fe43795d94d5ba0302f148cc2ea6471b2dd09
+Author: Malki Davis <md01@me.com>
+Date:   Thu Aug 4 13:02:25 2016 +0300
+
+    break down methods for brands
+
 commit 4408931c6bb186d6844f2fa43b302ede58ed9aa0
 Author: Malki Davis <md01@me.com>
 Date:   Wed Aug 3 13:50:48 2016 +0300
