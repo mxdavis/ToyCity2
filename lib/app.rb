@@ -87,7 +87,7 @@ def loop_through_brands_and_print
   get_unique_brands.each do |brand|
     calculate_brands_data(brand)
     calculate_brands_average(brand)
-    $report_file.puts "#{brand} has #{$brandhash[brand][:stock]} toys in stock. The average price is $#{calculate_brands_average(brand)} and the total revenue is $#{$brandhash[brand][:price].round(2)}"
+    $report_file.puts "#{brand} has #{$brandhash[brand][:stock]} toys in stock. The average price of the #{$brandhash[brand][:count]} toys sold by #{brand} is $#{calculate_brands_average(brand)} and the total revenue is $#{$brandhash[brand][:price].round(2)}"
     puts_linebreak
   end
 end
