@@ -7,7 +7,7 @@
                                       | |                   
                                       |_|                   
 ================================================================================================
-Printed on Thursday, 04 Aug 2016  1:04 PM
+Printed on Thursday, 04 Aug 2016 10:40 PM
 ================================================================================================
   _____               _            _       
  |  __ \             | |          | |      
@@ -33,9 +33,9 @@ LEGO Firehouse Headquarters costs $199.99. 2 LEGO Firehouse Headquarters were so
                                   
                                   
 ================================================================================================
-LEGO has 55 toys in stock. The average price of the 4 toys sold by LEGO is $104.24 and the total revenue is $416.96
+LEGO has 55 toys in stock. The average price of the 2 types of toy(s) sold by LEGO is $111.49 and the total revenue is $416.96
 ================================================================================================
-Nano Blocks has 12 toys in stock. The average price of the 2 toys sold by Nano Blocks is $34.49 and the total revenue is $68.98
+Nano Blocks has 12 toys in stock. The average price of the 1 types of toy(s) sold by Nano Blocks is $49.99 and the total revenue is $68.98
 ================================================================================================
 THIS IS THE END OF THE REPORT
 ================================================================================================

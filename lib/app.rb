@@ -87,7 +87,7 @@ def loop_through_brands_and_print
   get_unique_brands.each do |brand|
     calculate_brands_data(brand)
     calculate_brands_average(brand)
-    $report_file.puts "#{brand} has #{$brandhash[brand][:stock]} toys in stock. The average price of the #{$brandhash[brand][:count]} toys sold by #{brand} is $#{calculate_brands_average(brand)} and the total revenue is $#{$brandhash[brand][:price].round(2)}"
+    $report_file.puts "#{brand} has #{$brandhash[brand][:stock]} toys in stock. The average price of the #{$brandhash[brand][:countofbrand]} types of toy(s) sold by #{brand} is $#{calculate_brands_average(brand)} and the total revenue is $#{$brandhash[brand][:price].round(2)}"
     puts_linebreak
   end
 end
@@ -97,10 +97,12 @@ def get_unique_brands
 end
 
 def calculate_brands_data(brand)
-  $brandhash[brand] = {count: 0, stock: 0, price: 0}
+  $brandhash[brand] = {countofbrand: 0, stock: 0, priceofbrand: 0, count: 0, price: 0}
   $products_hash["items"].each do |item|
     if brand == item["brand"]
       $brandhash[brand][:stock] += item["stock"]
+      $brandhash[brand][:countofbrand] += 1
+      $brandhash[brand][:priceofbrand] += item["full-price"].to_f
         item["purchases"].each do |purchase|
          $brandhash[brand][:count] += 1
          $brandhash[brand][:price] += purchase["price"].to_f
@@ -110,7 +112,7 @@ def calculate_brands_data(brand)
 end
 
 def calculate_brands_average(brand)
- return ($brandhash[brand][:price] / $brandhash[brand][:count]).round(2)
+ return ($brandhash[brand][:priceofbrand] / $brandhash[brand][:countofbrand]).round(2)
 end
 
 def end_report
