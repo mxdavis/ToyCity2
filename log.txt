@@ -1,3 +1,15 @@
+commit 53671632f7953e2e5a278c4e74fe31ce97af180c
+Author: Malki Davis <md01@me.com>
+Date:   Thu Aug 4 22:41:38 2016 +0300
+
+    update average pricing method
+
+commit 80f8b2a4883369707dda1e25a1a02e9a8a9424c5
+Author: Malki Davis <md01@me.com>
+Date:   Thu Aug 4 13:06:01 2016 +0300
+
+    Update log file
+
 commit d83143824b0d32d6aa0724cb9d3ce4849424985d
 Author: Malki Davis <md01@me.com>
 Date:   Thu Aug 4 13:05:20 2016 +0300
