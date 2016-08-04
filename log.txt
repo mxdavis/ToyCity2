@@ -1,3 +1,130 @@
+commit 4408931c6bb186d6844f2fa43b302ede58ed9aa0
+Author: Malki Davis <md01@me.com>
+Date:   Wed Aug 3 13:50:48 2016 +0300
+
+    break down products section into smaller methods
+
+commit b30851f8f12d7b70ee90a738c6537e090858a792
+Author: Malki Davis <md01@me.com>
+Date:   Tue Jul 26 22:18:41 2016 +0300
+
+    remove report from the wrong folder
+
+commit 4ecf1a592dffde43a23f1feb2dcb299d4f3eb91f
+Merge: db104e2 28f7207
+Author: Malki Davis <md01@me.com>
+Date:   Sun Jul 10 00:08:43 2016 +0300
+
+    merger from master
+
+commit db104e22102c2887af1ad3e451b2995958fe3e8e
+Author: Malki Davis <md01@me.com>
+Date:   Sat Jul 9 23:41:54 2016 +0300
+
+    update time format
+
+commit 95280afcca54c2fc39e1887c83f6b532d43cc403
+Author: Malki Davis <md01@me.com>
+Date:   Sat Jul 9 23:22:22 2016 +0300
+
+    setup gem bundler
+
+commit 9075e90e3abc21ec517d95f7d214da12f402e8b4
+Author: Malki Davis <md01@me.com>
+Date:   Sat Jul 9 23:04:34 2016 +0300
+
+    setup gem bundler
+
+commit c609f294ec15445e68caa8bb4da8ed0049aca3f6
+Author: Malki Davis <md01@me.com>
+Date:   Sat Jul 9 22:47:23 2016 +0300
+
+    change location of reports file
+
+commit 41201efc9175149345cee9a98bc565727545dafd
+Author: Malki Davis <md01@me.com>
+Date:   Fri Jul 8 00:59:33 2016 +0300
+
+    add brands data
+
+commit 10b71dcfa1dd56ab48e8603ef8f9a6ade60140fa
+Author: Malki Davis <md01@me.com>
+Date:   Fri Jul 8 00:42:53 2016 +0300
+
+    fix up products data
+
+commit 28f720789f194d5d66bf2d24bb09003d69c22646
+Author: Malki Davis <md01@me.com>
+Date:   Fri Jul 8 00:02:45 2016 +0300
+
+    delete
+
+commit e84d73d9c30ee4d699d7688b13302af11fc60809
+Author: Malki Davis <md01@me.com>
+Date:   Thu Jul 7 23:56:33 2016 +0300
+
+    cleanup2
+
+commit 99a118be00de0c70b5f31f96f1a2e5f919a3d0b2
+Author: Malki Davis <md01@me.com>
+Date:   Thu Jul 7 23:55:28 2016 +0300
+
+    cleanup
+
+commit 550806202d8789922d5f1b037c4567d03f7fc00f
+Author: Malki Davis <md01@me.com>
+Date:   Tue Jun 21 01:16:21 2016 +0300
+
+    add linebreaks
+
+commit 5c528c253d440011ad8282baa8847381121ed8f5
+Author: Malki Davis <md01@me.com>
+Date:   Tue Jun 21 01:12:47 2016 +0300
+
+    update ascii art to method
+
+commit 8ceab96d48129fd4a9676b864e23156852878f43
+Author: Malki Davis <md01@me.com>
+Date:   Mon Jun 20 22:50:34 2016 +0300
+
+    Brands ASCII
+
+commit bdcfce1f4de59dcd99784b35ce67b9ce371319fe
+Author: Malki Davis <md01@me.com>
+Date:   Thu Jun 9 13:25:01 2016 +0300
+
+    update products total but not printing right so need to switch it to array but going to try brands array first
+
+commit 9565937481b95c951b6faff80992074ab13fd773
+Author: Malki Davis <md01@me.com>
+Date:   Thu Jun 9 12:34:45 2016 +0300
+
+    calculate avg price and avg discount
+
+commit e231e72b5bb4323994c7b6af6def328419244939
+Author: Malki Davis <md01@me.com>
+Date:   Thu Jun 9 12:23:23 2016 +0300
+
+    calculate toltal purchases and sales
+
+commit c13b3fc3bbc101188918636297b9ad5c04ea719b
+Author: Malki Davis <md01@me.com>
+Date:   Fri Jun 3 00:51:14 2016 +0300
+
+    add name and price of toy
+
+commit bb9f1b35b4cd2da5c2cf7903448842ae81b3dcdd
+Author: Malki Davis <md01@me.com>
+Date:   Fri Jun 3 00:33:28 2016 +0300
+
+    Update methods to write to report.txt
+
+commit 050ddbc70aff8d458c84b472f56acc241b663a4e
+Author: Malki Davis <md01@me.com>
+Date:   Thu Jun 2 23:01:07 2016 +0300
+
+    Create and Run Reports Setup
+
 commit a433c776c5a0cbd1801ef70d936a029826594d1c
 Author: Malki Davis <md01@me.com>
 Date:   Thu Jun 2 22:39:25 2016 +0300

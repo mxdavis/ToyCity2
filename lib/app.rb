@@ -20,7 +20,7 @@ def create_report
   print_ascii('Products')
   loop_through_products_and_print
   print_ascii('Brands')
-  print_brand_calculations
+  loop_through_brands_and_print
   end_report
   $report_file.close
 end
@@ -48,13 +48,10 @@ end
 
 def loop_through_products_and_print
   $products_hash["items"].each do |toy|
-    $report_file.puts "#{name_of_toy(toy)} costs $#{price_of_toy(toy)}. #{total_amount_sold(toy)} #{name_of_toy(toy)} were sold for a total of $#{total_sales(toy)} with an average discount price of $#{average_price(toy)}. The average discount was #{average_discount(toy)}. #{puts_linebreak}"
+    $report_file.puts "#{name_of_toy(toy)} costs $#{price_of_toy(toy)}. #{total_amount_sold(toy)} #{name_of_toy(toy)} were sold for a total of $#{product_total_sales(toy)} with an average discount price of $#{product_average_price(toy)}. The average discount was #{product_average_discount(toy)}. #{puts_linebreak}"
   end
 end
 
-# For each product in the data set:
-	# Print the name of the toy
-    # Print the retail price of the toy
 def name_of_toy(toy)
   return "#{toy["title"]}"
 end
@@ -67,46 +64,53 @@ def total_amount_sold(toy)
   return "#{toy["purchases"].length}".to_i
 end
 
-def total_sales(toy)
-  total_sales = 0
-  toy["purchases"].each { |purchase| total_sales = total_sales += purchase["price"]}
-  return total_sales.to_f
+def product_total_sales(toy)
+  product_total_sales = 0
+  toy["purchases"].each { |purchase| product_total_sales = product_total_sales += purchase["price"]}
+  return product_total_sales.to_f
 end
 
-def average_price(toy)
-  return total_sales(toy) / total_amount_sold(toy)
+def product_average_price(toy)
+  return product_total_sales(toy) / total_amount_sold(toy)
 end
 
-def average_discount(toy)
-  return "#{(100.00 * ((price_of_toy(toy) - average_price(toy)) / price_of_toy(toy))).round(2)}%"
+def product_average_discount(toy)
+  return "#{(100.00 * ((price_of_toy(toy) - product_average_price(toy)) / price_of_toy(toy))).round(2)}%"
 end
 	
 	
 
-# Print "Brands" in ascii art
+# Start Brands Section
 
-def print_brand_calculations
-	brandhash = {}
-	brandsunique = $products_hash["items"].map { |toy| toy["brand"] }.uniq
- # Count and print the number of the brand's toys we stock
- brandsunique.each do |brand|
- 	brandhash[brand] = {count: 0, stock: 0, price: 0}
-
-     # Calculate and print the total revenue of all the brand's toy sales combined
-     $products_hash["items"].each do |item|
-     	if brand == item["brand"]
-     		brandhash[brand][:stock] += item["stock"]
-     		item["purchases"].each do |purchase|
-     			brandhash[brand][:count] += 1
-     			brandhash[brand][:price] += purchase["price"].to_f
-     		end
-     	end
-     end
-  # Calculate and print the average price of the brand's toys
-  avgpricebrand = brandhash[brand][:price] / brandhash[brand][:count]
-  $report_file.puts "#{brand} has #{brandhash[brand][:stock]} toys in stock. The average price of the #{brandhash[brand][:count]} toys sold by #{brand} is $#{avgpricebrand.round(2)} and the total revenue is $#{brandhash[brand][:price].round(2)}"
-  puts_linebreak
+def loop_through_brands_and_print
+  $brandhash = {}
+  get_unique_brands.each do |brand|
+    calculate_brands_data(brand)
+    calculate_brands_average(brand)
+    $report_file.puts "#{brand} has #{$brandhash[brand][:stock]} toys in stock. The average price is $#{calculate_brands_average(brand)} and the total revenue is $#{$brandhash[brand][:price].round(2)}"
+    puts_linebreak
+  end
 end
+
+def get_unique_brands
+  return $products_hash["items"].map { |toy| toy["brand"] }.uniq
+end
+
+def calculate_brands_data(brand)
+  $brandhash[brand] = {count: 0, stock: 0, price: 0}
+  $products_hash["items"].each do |item|
+    if brand == item["brand"]
+      $brandhash[brand][:stock] += item["stock"]
+        item["purchases"].each do |purchase|
+         $brandhash[brand][:count] += 1
+         $brandhash[brand][:price] += purchase["price"].to_f
+        end
+      end
+    end
+end
+
+def calculate_brands_average(brand)
+ return ($brandhash[brand][:price] / $brandhash[brand][:count]).round(2)
 end
 
 def end_report
